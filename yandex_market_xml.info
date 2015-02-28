@@ -1,0 +1,8 @@
+name = Yandex Market XML
+description = "Implements an export of any XML view in YML format for market.yandex.ru. 
+By <a href='mailto:dimakototkov@mail.ru?subject=Yandex Market XML'>Korotkov D.</a>"
+configure = admin/config/yandex_market_xml
+dependencies[] = taxonomy
+dependencies[] = views
+dependencies[] = xautoload
+core = 7.x

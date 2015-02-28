@@ -1,0 +1,60 @@
+<?php
+
+use Drupal\yandex_market_xml\Main;
+
+/**
+ * Implements hook_menu().
+ * 1. Page "yandex_market_xml" for YML export.
+ * 2. Page "admin/commerce/config/advanced-settings/yandex_market_xml" for settings form.
+ */
+function yandex_market_xml_menu() 
+{
+  $items['yandex_market_xml'] = array
+	(
+    'title' => t('Yandex Market XML'),
+    'page callback' => 'yandex_market_xml_output',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+	$items['admin/config/yandex_market_xml'] = array
+	(
+    'title' => t('Yandex market XML'),
+    'description' => 'Select a vocabulary and a view for YML export',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('yandex_market_xml_admin'),
+    'access arguments' => array('configure store')
+   );
+  return $items;
+}
+
+/**
+ * Settings form - choosing categories vocabulary, xml view and currency plugin
+ */
+function yandex_market_xml_admin()
+{
+	return Main::drupalForm();
+}
+
+/**
+ * Validate settings
+ */
+function yandex_market_xml_admin_validate($form, &$form_state)
+{
+	Main::drupalFormValidate($form_state);
+}
+
+/**
+ * Save settings
+ */
+function yandex_market_xml_admin_submit($form, &$form_state)
+{
+	Main::drupalFormSubmit($form_state);
+}
+
+/**
+ * Main function - print YML
+ */
+function yandex_market_xml_output()
+{	
+	print Main::yml();
+}
