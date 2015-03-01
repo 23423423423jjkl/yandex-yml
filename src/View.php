@@ -62,6 +62,12 @@ class View extends Item
 			{
 				break;
 			}
+			
+			global $language;
+			$aLanguages = language_list();
+			$oLanguage = $language;
+			$language = $aLanguages['en'];
+	
 			$sOffers = views_embed_view($aViewParams[0], $aViewParams[1]);
 			$oOffersDocument = new \DOMDocument();
 			$oOffersDocument->loadXML($sOffers);
@@ -74,6 +80,8 @@ class View extends Item
 				}
 			}
 			$vResult = $oOffersDocument;
+			
+			//$language = $oLanguage;
 		}while(0);
 		return $vResult;
 	}
