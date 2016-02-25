@@ -19,4 +19,4 @@ You may add your custom plugin for any system that you like (in src/plugins dire
 Produced by rostechcom.ru.
 
 I spent time for getting this module flexible, useful and commerce independent. It will be great if you donate some part
-of your profit to Yandex Money 410011277443381.
+of your profit to WebMoney R273140314399 or Z419624153348.
